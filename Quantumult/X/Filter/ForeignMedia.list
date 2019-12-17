@@ -26,6 +26,8 @@ DOMAIN-SUFFIX,pscdn.co,ForeignMedia
 DOMAIN-SUFFIX,scdn.co,ForeignMedia
 DOMAIN-SUFFIX,spotify.com,ForeignMedia
 DOMAIN-SUFFIX,spoti.fi,ForeignMedia
+DOMAIN-KEYWORD,spotify.com,ForeignMedia
+DOMAIN-KEYWORD,-spotify-com,ForeignMedia
 # > TIDAL
 USER-AGENT,TIDAL*,ForeignMedia
 DOMAIN-SUFFIX,tidal.com,ForeignMedia

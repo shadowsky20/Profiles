@@ -16,4 +16,4 @@
 
 ## 许可
 
-[MIT License](https://github.com/ConnersHua/Profiles/raw/master/LICENSE)
+[MIT License](https://github.com/shadowsky20/Profiles/raw/master/LICENSE)

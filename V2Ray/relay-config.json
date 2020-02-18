@@ -1,0 +1,79 @@
+{
+    "inbounds": [
+        {
+            "followRedirect": true,
+            "network": "tcp,udp",
+            "port": 10123,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "1.2.3.4",
+                "port": 80
+            },
+            "tag": "jp1"
+        }
+    ],
+    "log": {
+        "loglevel": "debug"
+    },
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "IP4_out"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIPv6"
+            },
+            "tag": "IP6_out"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "block"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
+        }
+    ],
+    "policy": {
+        "levels": {
+            "0": {
+                "connIdle": 300,
+                "downlinkOnly": 5,
+                "handshake": 4,
+                "statsUserDownlink": true,
+                "statsUserUplink": true,
+                "uplinkOnly": 2
+            }
+        }
+    },
+    "routing": {
+        "rules": [
+            {
+                "domain": [
+                    "geosite:cn"
+                ],
+                "outboundTag": "direct",
+                "type": "field"
+            },
+            {
+                "ip": [
+                    "geoip:cn"
+                ],
+                "outboundTag": "direct",
+                "type": "field"
+            },
+            {
+                "network": "udp,tcp",
+                "outboundTag": "IP4_out",
+                "type": "field"
+            }
+        ],
+        "strategy": "rules"
+    },
+    "stats": {}
+}

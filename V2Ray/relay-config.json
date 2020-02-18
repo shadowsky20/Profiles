@@ -46,16 +46,6 @@
         }
     ],
     "policy": {
-        "levels": {
-            "0": {
-                "connIdle": 300,
-                "downlinkOnly": 5,
-                "handshake": 4,
-                "statsUserDownlink": true,
-                "statsUserUplink": true,
-                "uplinkOnly": 2
-            }
-        },
         "system": {
             "statsInboundDownlink": true,
             "statsInboundUplink": true

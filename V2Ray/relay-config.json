@@ -32,7 +32,7 @@
         "rules": [
             {
                 "ip": ["geoip:private"],
-                "outboundTag": "blocked",
+                "outboundTag": "block",
                 "type": "field"
             },
             {

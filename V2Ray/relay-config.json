@@ -31,8 +31,8 @@
         "domainStrategy": "IPOnDemand",
         "rules": [
             {
-                "ip": ["geoip:cn"],
-                "outboundTag": "block",
+                "ip": ["geoip:private"],
+                "outboundTag": "blocked",
                 "type": "field"
             },
             {

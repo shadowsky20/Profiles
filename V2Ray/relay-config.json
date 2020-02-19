@@ -1,12 +1,4 @@
 {
-    "api": {
-        "services": [
-            "HandlerService",
-            "LoggerService",
-            "StatsService"
-        ],
-        "tag": "api"
-    },
     "inbounds": [
         {
             "followRedirect": true,
@@ -25,19 +17,9 @@
     },
     "outbounds": [
         {
-            "protocol": "freedom"
-        },
-        {
             "protocol": "freedom",
             "settings": {},
-            "tag": "IP4_out"
-        },
-        {
-            "protocol": "freedom",
-            "settings": {
-                "domainStrategy": "UseIPv6"
-            },
-            "tag": "IP6_out"
+            "tag": "direct"
         },
         {
             "protocol": "blackhole",
@@ -45,23 +27,31 @@
             "tag": "block"
         }
     ],
-    "policy": {
-        "system": {
-            "statsInboundDownlink": true,
-            "statsInboundUplink": true
-        }
-    },
     "routing": {
+        "domainStrategy": "IPOnDemand",
         "rules": [
             {
-                "inboundTag": [
-                    "api"
+                "ip": [
+                    "geoip:cn"
                 ],
-                "outboundTag": "api",
+                "outboundTag": "block",
+                "type": "field"
+            },
+            {
+                "domain": [
+                    "geosite:cn"
+                ],
+                "outboundTag": "direct",
+                "type": "field"
+            },
+            {
+                "ip": [
+                    "geoip:cn"
+                ],
+                "outboundTag": "direct",
                 "type": "field"
             }
         ],
         "strategy": "rules"
-    },
-    "stats": {}
+    }
 }
